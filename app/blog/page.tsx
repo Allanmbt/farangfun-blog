@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { compareDesc } from "date-fns";
 import { useInView } from "react-intersection-observer";
 import { allBlogs } from "contentlayer/generated";
@@ -34,7 +34,7 @@ export default function BlogPage() {
     });
 
     // 加载更多文章
-    const loadMorePosts = async () => {
+    const loadMorePosts = useCallback(async () => {
         if (loadingMore || reachedEnd) return;
 
         setLoadingMore(true);
@@ -66,7 +66,7 @@ export default function BlogPage() {
         }
 
         setLoadingMore(false);
-    };
+    }, [loadingMore, reachedEnd, pageIndex, sortedPosts.length, POSTS_PER_PAGE]);
 
     // 监听 inView 变化，自动加载更多文章
     useEffect(() => {

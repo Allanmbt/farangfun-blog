@@ -47,8 +47,6 @@ export default function BlogPost({ params }: BlogPostProps) {
     if (post.tags) {
         if (Array.isArray(post.tags)) {
             tags = post.tags;
-        } else if (typeof post.tags === 'string') {
-            tags = post.tags.split(',').map(tag => tag.trim());
         }
     }
 

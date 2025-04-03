@@ -58,7 +58,9 @@ export default function BlogPost({ params }: BlogPostProps) {
 
     const hasUpdated = post.lastUpdated && post.lastUpdated !== post.date;
 
-    const formattedLastUpdated = hasUpdated ? format(new Date(post.lastUpdated), "MMMM d, yyyy") : null;
+    const formattedLastUpdated = hasUpdated && post.lastUpdated
+        ? format(new Date(post.lastUpdated), "MMMM d, yyyy")
+        : null;
 
     return (
         <>

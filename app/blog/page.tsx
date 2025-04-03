@@ -66,7 +66,7 @@ export default function BlogPage() {
         }
 
         setLoadingMore(false);
-    }, [loadingMore, reachedEnd, pageIndex, sortedPosts.length, POSTS_PER_PAGE]);
+    }, [loadingMore, reachedEnd, pageIndex, sortedPosts]);  // 添加 sortedPosts
 
     // 监听 inView 变化，自动加载更多文章
     useEffect(() => {

@@ -34,7 +34,7 @@ export default function BlogPage() {
     });
 
     // 加载更多文章
-    const loadMorePosts = useCallback(async () => {
+    const loadMorePosts = async () => {
         if (loadingMore || reachedEnd) return;
 
         setLoadingMore(true);
@@ -66,7 +66,7 @@ export default function BlogPage() {
         }
 
         setLoadingMore(false);
-    }, [loadingMore, reachedEnd, pageIndex, sortedPosts.length]);
+    };
 
     // 监听 inView 变化，自动加载更多文章
     useEffect(() => {

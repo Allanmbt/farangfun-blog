@@ -20,7 +20,6 @@ export type Blog = {
   image?: string | undefined
   author: string
   tags?: string[] | undefined
-  viewCount: number
   /** MDX file body */
   body: MDX
   slug: string

@@ -11,5 +11,6 @@ import blog__welcomeToFarangfun_9Mdx from './blog__welcome-to-farangfun-9.mdx.js
 import blog__welcomeToFarangfun_10Mdx from './blog__welcome-to-farangfun-10.mdx.json' assert { type: 'json' }
 import blog__welcomeToFarangfun_11Mdx from './blog__welcome-to-farangfun-11.mdx.json' assert { type: 'json' }
 import blog__welcomeToFarangfunMdx from './blog__welcome-to-farangfun.mdx.json' assert { type: 'json' }
+import blog__welcomeToFarangfun_2Mdx from './blog__welcome-to-farangfun-2.mdx.json' assert { type: 'json' }
 
-export const allBlogs = [blog__bangkokBestRooftopBarsMdx, blog__welcomeToFarangfun_3Mdx, blog__welcomeToFarangfun_4Mdx, blog__welcomeToFarangfun_5Mdx, blog__welcomeToFarangfun_6Mdx, blog__welcomeToFarangfun_7Mdx, blog__welcomeToFarangfun_8Mdx, blog__welcomeToFarangfun_9Mdx, blog__welcomeToFarangfun_10Mdx, blog__welcomeToFarangfun_11Mdx, blog__welcomeToFarangfunMdx]
+export const allBlogs = [blog__bangkokBestRooftopBarsMdx, blog__welcomeToFarangfun_3Mdx, blog__welcomeToFarangfun_4Mdx, blog__welcomeToFarangfun_5Mdx, blog__welcomeToFarangfun_6Mdx, blog__welcomeToFarangfun_7Mdx, blog__welcomeToFarangfun_8Mdx, blog__welcomeToFarangfun_9Mdx, blog__welcomeToFarangfun_10Mdx, blog__welcomeToFarangfun_11Mdx, blog__welcomeToFarangfunMdx, blog__welcomeToFarangfun_2Mdx]

@@ -4,7 +4,6 @@ import { Metadata } from "next";
 import { format } from "date-fns";
 import { constructMetadata, generateBlogJsonLd } from "@/lib/seo";
 import { Recommended } from "@/components/Recommended";
-import { GiscusComments } from "@/components/GiscusComments";
 import { MDXContent } from "@/components/MDXContent";
 import { AnimateIn } from "@/components/AnimateIn";
 import { BlogHeader } from "@/components/BlogHeader";
@@ -112,10 +111,6 @@ export default function BlogPost({ params }: BlogPostProps) {
 
                 <AnimateIn delay={0.3}>
                     <Recommended posts={allBlogs} currentPostSlug={post.slug} />
-                </AnimateIn>
-
-                <AnimateIn delay={0.4}>
-                    <GiscusComments />
                 </AnimateIn>
             </article>
         </>

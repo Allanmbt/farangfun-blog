@@ -50,15 +50,15 @@ export const Blog = defineDocumentType(() => ({
 
 const rehypePrettyCodeOptions = {
     theme: 'github-dark',
-    onVisitLine(node) {
+    onVisitLine(node: any) {
         if (node.children.length === 0) {
             node.children = [{ type: 'text', value: ' ' }];
         }
     },
-    onVisitHighlightedLine(node) {
+    onVisitHighlightedLine(node: any) {
         node.properties.className.push('highlighted');
     },
-    onVisitHighlightedWord(node) {
+    onVisitHighlightedWord(node: any) {
         node.properties.className = ['word'];
     },
 };
@@ -70,6 +70,7 @@ export default makeSource({
         remarkPlugins: [remarkGfm],
         rehypePlugins: [
             rehypeSlug,
+            // @ts-ignore 忽略rehypePrettyCode插件的类型不匹配问题
             [rehypePrettyCode, rehypePrettyCodeOptions],
             [
                 rehypeAutolinkHeadings,

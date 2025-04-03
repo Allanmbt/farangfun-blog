@@ -68,6 +68,7 @@ var contentlayer_config_default = makeSource({
     remarkPlugins: [remarkGfm],
     rehypePlugins: [
       rehypeSlug,
+      // @ts-ignore 忽略rehypePrettyCode插件的类型不匹配问题
       [rehypePrettyCode, rehypePrettyCodeOptions],
       [
         rehypeAutolinkHeadings,
@@ -84,4 +85,4 @@ export {
   Blog,
   contentlayer_config_default as default
 };
-//# sourceMappingURL=compiled-contentlayer-config-E5Q7J4LE.mjs.map
+//# sourceMappingURL=compiled-contentlayer-config-6BO3PWOJ.mjs.map

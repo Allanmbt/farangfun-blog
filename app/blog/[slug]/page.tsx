@@ -7,6 +7,8 @@ import { Recommended } from "@/components/Recommended";
 import { MDXContent } from "@/components/MDXContent";
 import { AnimateIn } from "@/components/AnimateIn";
 import { BlogHeader } from "@/components/BlogHeader";
+import { ScrollToTopButton } from "@/components/ScrollToTopButton";
+import { SocialShare } from "@/components/SocialShare"; // 这是我们将创建的社交分享组件
 
 interface BlogPostProps {
     params: {
@@ -31,6 +33,8 @@ export async function generateMetadata({
         description: post.description,
         url: `https://farangfun.com/blog/${post.slug}`,
         ogImage: post.image || "/images/og-image.jpg",
+        publishDate: post.date,
+        lastUpdated: post.lastUpdated,
     });
 }
 
@@ -41,7 +45,7 @@ export default function BlogPost({ params }: BlogPostProps) {
         notFound();
     }
 
-    // 处理标签 - 正确处理标签的格式
+    // 处理标签
     let tags: string[] = [];
     if (post.tags) {
         if (Array.isArray(post.tags)) {
@@ -49,7 +53,7 @@ export default function BlogPost({ params }: BlogPostProps) {
         }
     }
 
-    // JSON-LD - 更新以包含lastUpdated属性
+    // JSON-LD
     const jsonLd = generateBlogJsonLd({
         ...post,
         dateModified: post.lastUpdated || post.date
@@ -61,6 +65,9 @@ export default function BlogPost({ params }: BlogPostProps) {
         ? format(new Date(post.lastUpdated), "MMMM d, yyyy")
         : null;
 
+    // 当前文章URL (用于社交分享)
+    const articleUrl = `https://farangfun.com/blog/${post.slug}`;
+
     return (
         <>
             <script
@@ -68,7 +75,7 @@ export default function BlogPost({ params }: BlogPostProps) {
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
             />
 
-            {/* 添加新的博客头部组件 */}
+            {/* 博客头部 */}
             <BlogHeader
                 title={post.title}
                 image={post.image}
@@ -109,10 +116,20 @@ export default function BlogPost({ params }: BlogPostProps) {
                     </div>
                 </AnimateIn>
 
+                {/* 再次添加社交分享图标 (文章底部) */}
+                <AnimateIn delay={0.25} className="mt-8">
+                    <div className="flex justify-end">
+                        <SocialShare url={articleUrl} title={post.title} />
+                    </div>
+                </AnimateIn>
+
                 <AnimateIn delay={0.3}>
                     <Recommended posts={allBlogs} currentPostSlug={post.slug} />
                 </AnimateIn>
             </article>
+
+            {/* 返回顶部按钮 */}
+            <ScrollToTopButton />
         </>
     );
 }

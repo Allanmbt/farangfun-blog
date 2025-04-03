@@ -14,7 +14,7 @@ export function GiscusComments() {
                 repo="Allanmbt/farangfun-blog"
                 repoId="R_kgDOOTcmnw"
                 category="Announcements"
-                categoryId="DIC_kwDOOTcmn84Cov_g"
+                categoryId="DIC_kwDOOTcmn84Cov_f"
                 mapping="pathname"
                 reactionsEnabled="1"
                 emitMetadata="0"

@@ -2,26 +2,121 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 20 84% 49%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 20 84% 49%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 20 84% 49%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 20 84% 49%;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* 导航菜单样式 */
+.nav-link {
+  @apply relative px-3 py-2 transition-colors dark:text-gray-300 text-gray-700;
+}
+
+.nav-link::after {
+  content: '';
+  @apply absolute bottom-0 left-0 w-0 h-0.5 bg-brand transition-all duration-300;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  @apply w-full;
+}
+
+.nav-link:hover {
+  @apply dark:text-white text-black;
+}
+
+.nav-link.active {
+  @apply font-bold;
+  @apply text-brand;
+}
+
+/* 响应式导航 */
+.mobile-menu {
+  @apply fixed inset-0 bg-black/90 dark:bg-black/95 flex flex-col items-center justify-center z-50 transform transition-all duration-300;
+}
+
+.mobile-menu.closed {
+  @apply opacity-0 pointer-events-none;
+}
+
+.mobile-menu.open {
+  @apply opacity-100;
+}
+
+.mobile-menu .nav-link {
+  @apply text-xl py-4 text-white hover:text-brand;
+}
+
+.mobile-menu .nav-link.active {
+  @apply text-brand;
+}
+
+/* 面包屑样式 */
+.breadcrumb-item {
+  @apply text-muted-foreground hover:text-foreground;
+}
+
+.breadcrumb-item.active {
+  color: #e65616;
+}
+
+.breadcrumb-item.text-brand {
+  color: #e65616;
+}
+
+.breadcrumb-separator {
+  @apply mx-2 text-muted-foreground;
 }

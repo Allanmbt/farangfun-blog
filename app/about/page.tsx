@@ -47,7 +47,7 @@ export default function AboutPage() {
 
                 <h2>Get in Touch</h2>
                 <p>
-                    Have questions or suggestions? We'd love to hear from you! Reach out to us via email at
+                    Have questions or suggestions? We&apos;d love to hear from you! Reach out to us via email at
                 </p>
             </AnimateIn>
         </div>

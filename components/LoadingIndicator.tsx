@@ -70,7 +70,7 @@ export function NoMorePosts() {
         </svg>
       </div>
       <p className="text-muted-foreground text-sm font-medium">
-        You've reached the end of our articles
+        You&apos;ve reached the end of our articles
       </p>
       <p className="text-muted-foreground/60 text-xs mt-1">
         Check back soon for more content

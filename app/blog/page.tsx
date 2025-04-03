@@ -73,7 +73,7 @@ export default function BlogPage() {
         if (inView && !loadingMore && !reachedEnd) {
             loadMorePosts();
         }
-    }, [inView]);
+    }, [inView, loadMorePosts, loadingMore, reachedEnd]);
 
     // 文章项目容器的动画变体
     const container = {

@@ -35,11 +35,6 @@ export const Blog = defineDocumentType(() => ({
             of: { type: 'string' },
             required: false,
         },
-        viewCount: {
-            type: 'number',
-            required: false,
-            default: 0,
-        },
     },
     computedFields: {
         slug: {

@@ -38,7 +38,7 @@ export function HeroSection() {
                         </span>
                     </h1>
                     <p className="text-xl md:text-xl mb-8 max-w-xl font-bold">
-                        BANGKOK&apos;S ULTIMATE NIGHTLIFE&PARTY GUIDE, PACKED WITH ALL THE BEST SPOTS TO VISIT AND THINGS TO DO AFTER DARK.
+                        BANGKOK&apos;S ULTIMATE NIGHTLIFE&amp;PARTY GUIDE, PACKED WITH ALL THE BEST SPOTS TO VISIT AND THINGS TO DO AFTER DARK.
                     </p>
 
                     {/* 社交媒体图标 */}

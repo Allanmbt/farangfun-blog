@@ -10,6 +10,25 @@ interface SEOProps {
     lastUpdated?: string;     // 最后更新日期
 }
 
+// 扩展 OpenGraph 类型以包含我们需要的字段
+interface ExtendedOpenGraph {
+    title: string;
+    description: string;
+    url?: string;
+    siteName?: string;
+    locale?: string;
+    type?: string;
+    publishedTime?: string;   // 添加发布时间
+    modifiedTime?: string;    // 添加修改时间
+    images?: Array<{
+        url: string;
+        width?: number;
+        height?: number;
+        alt?: string;
+    }>;
+    [key: string]: any;       // 允许添加其他属性
+}
+
 export function constructMetadata({
     title,
     description,
@@ -38,7 +57,7 @@ export function constructMetadata({
                     alt: title,
                 },
             ],
-        },
+        } as ExtendedOpenGraph,  // 使用类型断言
         twitter: {
             card: "summary_large_image",
             title,
@@ -53,13 +72,13 @@ export function constructMetadata({
 
     // 添加日期相关元数据（如果存在）
     if (publishDate) {
-        if (!metadata.openGraph) metadata.openGraph = {};
-        metadata.openGraph.publishedTime = publishDate;
+        if (!metadata.openGraph) metadata.openGraph = {} as ExtendedOpenGraph;
+        (metadata.openGraph as ExtendedOpenGraph).publishedTime = publishDate;
     }
 
     if (lastUpdated) {
-        if (!metadata.openGraph) metadata.openGraph = {};
-        metadata.openGraph.modifiedTime = lastUpdated;
+        if (!metadata.openGraph) metadata.openGraph = {} as ExtendedOpenGraph;
+        (metadata.openGraph as ExtendedOpenGraph).modifiedTime = lastUpdated;
     }
 
     return metadata;

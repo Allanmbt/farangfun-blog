@@ -48,7 +48,6 @@ export default function AboutPage() {
                 <h2>Get in Touch</h2>
                 <p>
                     Have questions or suggestions? We'd love to hear from you! Reach out to us via email at
-                    <a href="mailto:contact@farangfun.com"> contact@farangfun.com</a>.
                 </p>
             </AnimateIn>
         </div>

@@ -29,7 +29,7 @@ export function HeroSection() {
             <div className="container relative z-10 mx-auto px-4 md:px-6 text-white">
                 <div className="max-w-3xl">
                     <div className="text-brand uppercase font-accent tracking-widest mb-4 font-bold">
-                        FARANG'S GUIDE TO
+                        FARANG&apos;S GUIDE TO
                     </div>
                     <h1 className="font-heading text-6xl md:text-8xl font-extrabold mb-6 leading-tight tracking-tight">
                         Bangkok<br />
